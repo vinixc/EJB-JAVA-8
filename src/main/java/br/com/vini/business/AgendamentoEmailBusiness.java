@@ -18,6 +18,9 @@ public class AgendamentoEmailBusiness {
 	@Inject
 	private AgendamentoEmailDao agendamentoEmailDao;
 	
+	@Inject
+	private EnvioDeEmailBusiness envioDeEmailBusiness;
+	
 	public List<AgendamentoEmail> listarAgemndamentosEmail(){
 	
 		return agendamentoEmailDao.listarAgendamentosEmail();
@@ -34,6 +37,14 @@ public class AgendamentoEmailBusiness {
 		agendamentoEmail.setEnviado(false);
 		agendamentoEmailDao.salvarAgendamentoEmail(agendamentoEmail);
 		
+	}
+	
+	public List<AgendamentoEmail> listarAgendamentoEmailNaoEnviados(){
+		return agendamentoEmailDao.listarAgendamentoEmailNaoEnviados();
+	}
+	
+	public void enviarEmail(AgendamentoEmail agendamentoEmail) {
+		envioDeEmailBusiness.enviarEmail(agendamentoEmail);
 	}
 
 }

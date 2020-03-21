@@ -28,7 +28,7 @@ public class AgendamentoEmailTimer {
 		agendamentoEmailBusiness.enviarEmail(agendamento);
 		
 		});
-		logger.info("FIM DOS ENVIOS!");
+		logger.info("FIM DO ENVIO DE EMAILS!");
 	}
 
 }

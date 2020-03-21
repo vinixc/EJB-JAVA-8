@@ -46,5 +46,10 @@ public class AgendamentoEmailBusiness {
 	public void enviarEmail(AgendamentoEmail agendamentoEmail) {
 		envioDeEmailBusiness.enviarEmail(agendamentoEmail);
 	}
+	
+	public void marcarEnviadas(AgendamentoEmail agendamentoEmail) {
+		agendamentoEmail.setEnviado(true);
+		agendamentoEmailDao.atualizaAgendamentoEmail(agendamentoEmail);
+	}
 
 }

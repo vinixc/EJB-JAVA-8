@@ -21,3 +21,5 @@ CONFIGURANDO O SMTP:
 CONFIGURACAO DO USUARIO ETC:
 /subsystem=mail/mail-session=agendamentoMailSession/server=smtp:add(outbound-socket-binding-ref= my-smtp-binding, username=51e9329b4656d5, password=efe49e81dc02fd, tls=true)
 
+CONFIGURANDO FILA:
+jms-queue add --queue-address=EmailQueue --entries=java:/jms/queue/EmailQueue

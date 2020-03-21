@@ -1,3 +1,4 @@
+
 ABRINDO O JBOSS CLI
 jboss-cli.bat --connect
 
@@ -23,3 +24,9 @@ CONFIGURACAO DO USUARIO ETC:
 
 CONFIGURANDO FILA:
 jms-queue add --queue-address=EmailQueue --entries=java:/jms/queue/EmailQueue
+
+OLHANDO A FILA:
+jms-queue list-messages --queue-address=EmailQueue
+
+FILA DE ERROS:
+jms-queue list-messages --queue-address=DLQ:list-messages

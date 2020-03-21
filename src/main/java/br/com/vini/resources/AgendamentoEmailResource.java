@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response.Status;
 
 import br.com.vini.business.AgendamentoEmailBusiness;
 import br.com.vini.entity.AgendamentoEmail;
+import br.com.vini.exception.BusinessException;
 
 @Path("/agendamentoemail")
 public class AgendamentoEmailResource {
@@ -32,7 +33,7 @@ public class AgendamentoEmailResource {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail ) {
+	public Response salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail ) throws BusinessException {
 		
 		agendamentoEmailBusiness.salvarAgendamentoEmail(agendamentoEmail);
 		

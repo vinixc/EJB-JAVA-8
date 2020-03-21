@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import br.com.vini.dao.AgendamentoEmailDao;
 import br.com.vini.entity.AgendamentoEmail;
+import br.com.vini.exception.BusinessException;
 import br.com.vini.interception.Logger;
 
 @Stateless
@@ -23,7 +24,12 @@ public class AgendamentoEmailBusiness {
 		
 	}
 	
-	public void salvarAgendamentoEmail( @Valid AgendamentoEmail agendamentoEmail) {
+	public void salvarAgendamentoEmail( @Valid AgendamentoEmail agendamentoEmail) throws BusinessException {
+		
+		if(!agendamentoEmailDao.listarAgendamentoEmailPorEmail(agendamentoEmail.getEmail()).isEmpty()) {
+			
+			throw new BusinessException("Email já está agendado.");
+		}
 		
 		agendamentoEmail.setEnviado(false);
 		agendamentoEmailDao.salvarAgendamentoEmail(agendamentoEmail);

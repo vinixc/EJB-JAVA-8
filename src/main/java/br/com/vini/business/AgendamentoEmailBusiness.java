@@ -1,20 +1,21 @@
 package br.com.vini.business;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+import br.com.vini.dao.AgendamentoEmailDao;
+import br.com.vini.entity.AgendamentoEmail;
 
 @Stateless //class gerenciado pelo conteiner do java EE.
 public class AgendamentoEmailBusiness {
 
-	public List<String> listarAgendamentosEmail(){
-		
-		List<String> emails = new ArrayList<>();
-		emails.add("email1@test.com");
-		emails.add("email2@test.com");
-		
-		return emails;
+	@Inject
+	private AgendamentoEmailDao emailDao;
+	
+	public List<AgendamentoEmail> listarAgendamentosEmail(){	
+		return emailDao.listarAgendamentoEmail();
 	}
 	
 	

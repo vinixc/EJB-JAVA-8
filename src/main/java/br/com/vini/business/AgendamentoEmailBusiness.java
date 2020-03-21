@@ -18,5 +18,8 @@ public class AgendamentoEmailBusiness {
 		return emailDao.listarAgendamentoEmail();
 	}
 	
-	
+	public void salvarAgendamentosEmail(AgendamentoEmail agendamentoEmail) {
+		agendamentoEmail.setEnviado(false);
+		emailDao.salvarAgendamentoEmail(agendamentoEmail);
+	}
 }

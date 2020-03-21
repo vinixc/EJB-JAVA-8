@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 import br.com.vini.dao.AgendamentoEmailDao;
 import br.com.vini.entity.AgendamentoEmail;
@@ -18,7 +19,7 @@ public class AgendamentoEmailBusiness {
 		return emailDao.listarAgendamentoEmail();
 	}
 	
-	public void salvarAgendamentosEmail(AgendamentoEmail agendamentoEmail) {
+	public void salvarAgendamentosEmail(@Valid AgendamentoEmail agendamentoEmail) {
 		agendamentoEmail.setEnviado(false);
 		emailDao.salvarAgendamentoEmail(agendamentoEmail);
 	}

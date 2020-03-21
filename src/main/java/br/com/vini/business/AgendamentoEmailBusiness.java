@@ -3,6 +3,10 @@ package br.com.vini.business;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -13,6 +17,7 @@ import br.com.vini.interception.Logger;
 
 @Stateless
 @Logger
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class AgendamentoEmailBusiness {
 	
 	@Inject
@@ -27,6 +32,7 @@ public class AgendamentoEmailBusiness {
 		
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void salvarAgendamentoEmail( @Valid AgendamentoEmail agendamentoEmail) throws BusinessException {
 		
 		if(!agendamentoEmailDao.listarAgendamentoEmailPorEmail(agendamentoEmail.getEmail()).isEmpty()) {
@@ -37,6 +43,7 @@ public class AgendamentoEmailBusiness {
 		agendamentoEmail.setEnviado(false);
 		agendamentoEmailDao.salvarAgendamentoEmail(agendamentoEmail);
 		
+		throw new RuntimeException();
 	}
 	
 	public List<AgendamentoEmail> listarAgendamentoEmailNaoEnviados(){

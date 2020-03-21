@@ -6,7 +6,7 @@ import javax.ws.rs.core.Application;
 
 
 /**
- * @author Vinicius de Carvalho
+ * @author rhuanrocha
  */
 
 

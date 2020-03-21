@@ -14,13 +14,14 @@ public class AgendamentoEmailDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public List<AgendamentoEmail> listarAgendamentoEmail(){
+	public List<AgendamentoEmail> listarAgendamentosEmail(){
 		return entityManager
 				.createQuery("select a from AgendamentoEmail a", AgendamentoEmail.class)
 				.getResultList();
 	}
 	
-	public void salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail) {
+	public void salvarAgendamentoEmail( AgendamentoEmail agendamentoEmail ) {
 		entityManager.persist(agendamentoEmail);
 	}
+
 }

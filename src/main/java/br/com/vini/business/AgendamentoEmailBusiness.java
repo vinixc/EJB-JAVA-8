@@ -9,18 +9,23 @@ import javax.validation.Valid;
 import br.com.vini.dao.AgendamentoEmailDao;
 import br.com.vini.entity.AgendamentoEmail;
 
-@Stateless //class gerenciado pelo conteiner do java EE.
+@Stateless
 public class AgendamentoEmailBusiness {
-
+	
 	@Inject
-	private AgendamentoEmailDao emailDao;
+	private AgendamentoEmailDao agendamentoEmailDao;
 	
-	public List<AgendamentoEmail> listarAgendamentosEmail(){	
-		return emailDao.listarAgendamentoEmail();
+	public List<AgendamentoEmail> listarAgemndamentosEmail(){
+	
+		return agendamentoEmailDao.listarAgendamentosEmail();
+		
 	}
 	
-	public void salvarAgendamentosEmail(@Valid AgendamentoEmail agendamentoEmail) {
+	public void salvarAgendamentoEmail( @Valid AgendamentoEmail agendamentoEmail) {
+		
 		agendamentoEmail.setEnviado(false);
-		emailDao.salvarAgendamentoEmail(agendamentoEmail);
+		agendamentoEmailDao.salvarAgendamentoEmail(agendamentoEmail);
+		
 	}
+
 }

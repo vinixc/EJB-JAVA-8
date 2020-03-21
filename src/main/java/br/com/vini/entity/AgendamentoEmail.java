@@ -15,16 +15,16 @@ public class AgendamentoEmail {
 	private Long id;
 	
 	@Column
-	@NotEmpty
-	@Email
+	@NotEmpty(message = "{agendamentoEmail.email.vazio}")
+	@Email(message = "{agendamentoEmail.email.invalido}")
 	private String email;
 	
 	@Column
-	@NotEmpty
+	@NotEmpty(message = "{agendamentoEmail.assunto.vazio}")
 	private String assunto;
 	
 	@Column
-	@NotEmpty
+	@NotEmpty(message = "{agendamentoEmail.mensagem.vazio}")
 	private String mensagem;
 	
 	@Column
